@@ -1,8 +1,7 @@
 # Inventory Mobile
-Nama    : Citra Andini Hermawan
-NPM     : 2206830012
+Nama    : Citra Andini Hermawan\
+NPM     : 2206830012\
 Kelas   : PBP D
-Repository : 
 
 ## Tugas 6
 ### Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
