@@ -4,19 +4,10 @@ class MyHomePage extends StatelessWidget {
     MyHomePage({Key? key}) : super(key: key);
     
     final List<ShopItem> items = [
-    ShopItem("Lihat Item", Icons.checklist, Colors.purple),
-    ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.blue),
-    ShopItem("Logout", Icons.logout, Colors.pink),
-];
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+    ShopItem("Lihat Item", Icons.checklist, Colors.deepPurple.shade200),
+    ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.teal.shade200),
+    ShopItem("Logout", Icons.logout, Colors.red.shade300),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +22,8 @@ class MyHomePage extends StatelessWidget {
         title: const Text(
           'Inventory App',
         ),
-        backgroundColor: Color.fromARGB(255, 250, 130, 170),// Indigo background color
-        foregroundColor: Colors.white,// White 'Shopping List' text
+        backgroundColor: Colors.deepPurple.shade200,// deepPurple background color
+        foregroundColor: Colors.white,// White 'Inventory App' text
       ),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
