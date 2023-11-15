@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_mobile/screens/inventory_list.dart';
 import 'package:inventory_mobile/screens/menu.dart';
 import 'package:inventory_mobile/screens/inventory_form.dart';
 
@@ -13,7 +14,7 @@ class LeftDrawer extends StatelessWidget {
           const DrawerHeader(
             // Bagian drawer header
             decoration: BoxDecoration(
-              color:  Colors.deepPurple,
+              color:  Colors.red,
             ),
             child: Column(
               children: [
@@ -50,15 +51,26 @@ class LeftDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.add_shopping_cart),
+              title: const Text('Lihat Item'),
+              // Bagian redirection ke ShopFormPage
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ItemListPage(),
+                  ));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.add_shopping_cart),
               title: const Text('Tambah Item'),
               // Bagian redirection ke ShopFormPage
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ShopFormPage(),
+                  MaterialPageRoute(builder: (context) => const ShopFormPage(),
                   ));
               },
-            ),
+            )
                     ],
                   ),
                 );

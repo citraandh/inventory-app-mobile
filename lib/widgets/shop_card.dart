@@ -1,5 +1,6 @@
 import 'package:inventory_mobile/screens/inventory_form.dart';
 import 'package:flutter/material.dart';
+import 'package:inventory_mobile/screens/inventory_list.dart';
 
 class ShopItem {
   final String name;
@@ -31,7 +32,10 @@ class ShopCard extends StatelessWidget {
                 if (item.name == "Tambah Item") {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const ShopFormPage()));
-                }   
+                } else if (item.name == "Lihat Item") {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ItemListPage()));
+                }
         },
         child: Container(
           // Container untuk menyimpan Icon dan Text

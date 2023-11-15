@@ -225,13 +225,118 @@ git push
 ![user1](https://i.postimg.cc/vm4WbLkc/Whats-App-Image-2023-11-08-at-11-39-33-9929c86a.jpg)
 
 ## Tugas 8
- Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 ### Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
- push: next page biasa
- pushReplacement : Login Logout
+- Navigator.push()
+  Digunakan untuk menambahkan halaman baru di atas halaman saat ini di tumpukan navigasi.
+  Memungkinkan pengguna untuk kembali ke halaman sebelumnya.
+  Contoh penggunaan:
+    ``` 
+    // Navigasi ke halaman baru/ berikutnya
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NextPage()),
+    );
+    ```
+- Navigator.pushReplacement():
+  Digunakan untuk menggantikan halaman saat ini dengan halaman baru.
+  Berguna untuk kasus seperti login dan logout, di mana halaman sebelumnya tidak boleh diakses lagi.
+  Contoh penggunaan:
+    ```
+    // Navigasi ke halaman baru dan menggantikan halaman saat ini
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+    ```
+  Perbedaan utama:
+  - push() menambah halaman baru di atas halaman saat ini.
+  - pushReplacement() menggantikan halaman saat ini dengan halaman baru.
+
 ### Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
+- ListView
+  Ideal untuk membuat daftar elemen yang dapat digulir. Sangat berguna ketika memiliki banyak data atau widget anak yang perlu ditampilkan dalam satu tampilan yang dapat digulir.
+
+- Stack
+  Cocok digunakan ketika perlu menumpuk beberapa widget di atas satu sama lain. Berguna dalam membuat tata letak yang kompleks, seperti menempatkan elemen-elemen terpisah di atas gambar latar belakang.
+
+- Align
+  Berguna ketika perlu menyesuaikan posisi widget anak di dalam widget parent berdasarkan alignment dan faktor-faktor lainnya. Misalnya, untuk menempatkan sebuah ikon di sudut kanan atas.
+
+- Column
+  Digunakan untuk menata widget anak secara vertikal dari atas ke bawah. Berguna dalam membuat tata letak vertikal seperti menu atau daftar yang perlu ditampilkan secara berurutan.
+
+- Row
+  Mengatur widget anak secara horizontal dari kiri ke kanan. Berguna ketika ingin menyusun elemen-elemen secara berdampingan secara horizontal, seperti tombol atau ikon.
+
+- Container
+  Merupakan wadah serbaguna yang dapat menampung widget lainnya. Cocok digunakan untuk memberikan kontrol terhadap properti seperti margin, padding, dan dekorasi. Memungkinkan desain yang kreatif dan penataan yang tepat.
+
+- Baseline
+  Berguna ketika perlu menyelaraskan elemen-elemen teks di antara beberapa widget. Misalnya, saat menampilkan teks yang harus selaras di antara beberapa widget berbeda.
+
+- Center
+  Menempatkan widget anaknya di tengah-tengah widget parent. Digunakan ketika ingin menempatkan teks, gambar, atau widget lainnya secara sentral di dalam widget parent.
+
+- AspectRatio
+  Ideal untuk menentukan rasio aspek widget. Berguna ketika ingin menjaga perbandingan lebar dan tinggi tertentu, seperti menampilkan gambar dengan rasio aspek yang spesifik.
+
+- Expanded
+  Digunakan untuk memberikan widget anak lebih banyak ruang dalam arah tertentu di dalam widget parent. Cocok digunakan dalam situasi di mana ingin memberikan lebih banyak ruang untuk satu atau beberapa widget dalam baris atau kolom.
+
 ### Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+- TextFormField  untuk Nama Item
+  Tujuan: Berfungsi untuk mendapatkan informasi nama item.
+  Alasan: Nama item menjadi identifikasi utama untuk membedakan satu item dengan yang lain.
+
+- TextFormField  untuk Harga Item:
+  Tujuan: Digunakan untuk mengumpulkan informasi harga item.
+  Alasan: Harga item merupakan data numerik yang sangat penting untuk menetapkan nilai moneternya. Pemilihan TextFormField memberikan fasilitas validasi agar hanya angka yang diterima.
+
+- TextFormField  untuk Jumlah Item:
+  Tujuan: Berfungsi untuk mengumpulkan jumlah item.
+  Alasan: Informasi mengenai jumlah item berperan dalam menunjukkan ketersediaan barang. Penggunaan TextFormField di sini memberikan validasi agar hanya angka yang dapat dimasukkan.
+
+- TextFormField  untuk Deskripsi:
+  Tujuan: Dimanfaatkan untuk mendapatkan deskripsi item.
+  Alasan: Deskripsi memberikan gambaran rinci tentang item yang dapat membantu pengguna memahaminya secara lebih mendalam. Penggunaan TextFormField memungkinkan input berupa teks deskripsi.
+
+Alasan Penggunaan:
+- Kemudahan Penggunaan: TextFormField dipilih karena menyajikan interface pengguna yang    intuitif dan sudah terintegrasi dengan baik dalam library Flutter.
+- Validasi Data: Setiap elemen input dilengkapi dengan validasi guna memastikan data yang dimasukkan sesuai dengan format yang diinginkan.
+- Interaktivitas: Elemen input memungkinkan perubahan data secara langsung melalui fungsi onChanged, memungkinkan nilai diupdate saat pengguna memasukkan atau merubah data.
+- Penanganan Kesalahan: TextFormField memberikan kemudahan dalam menangani pesan kesalahan dan memberikan umpan balik yang informatif kepada pengguna ketika data yang dimasukkan tidak memenuhi syarat.
+
 ### Bagaimana penerapan clean architecture pada aplikasi Flutter?
+Clean Architecture adalah sebuah konsep desain perangkat lunak yang memisahkan aplikasi ke dalam beberapa lapisan (layers) agar kode lebih terorganisir, mudah dipelihara, dan terhindar dari ketergantungan siklus hidup framework atau library tertentu. Penerapan Clean Architecture pada aplikasi Flutter melibatkan pemisahan tiga lapisan utama: Domain Layer, Data Layer, dan Presentation Layer.
+- Domain Layer
+  Merupakan inti dari aplikasi, tempat di mana aturan bisnis atau logika domain didefinisikan. Tidak bergantung pada framework atau library tertentu, sehingga dapat diuji dan dipertahankan secara terpisah.
+  Penerapan di Flutter:
+  Definisikan model entitas (Entity) yang mewakili objek bisnis murni.
+  Tetapkan use case atau interaktif aplikasi yang merepresentasikan aturan bisnis.
+
+- Data Layer
+  Bertanggung jawab untuk mengakses dan menyimpan data, termasuk sumber data eksternal seperti API atau database. Dapat dianggap sebagai gateway antara domain layer dan sumber data eksternal.
+  Penerapan di Flutter:
+  Implementasikan repository sebagai jembatan antara domain layer dan sumber data.
+  Gunakan konsep Data Sources untuk memisahkan antara data dari sumber eksternal dan data yang disajikan ke domain layer.
+
+- Presentation Layer
+  Menangani tampilan dan interaksi pengguna, serta menghubungkan antara lapisan domain dan data dengan UI. Terdiri dari widget-widget Flutter yang mengatur tampilan dan state UI.
+  Penerapan di Flutter:
+  Implementasikan widget-widget UI yang bertanggung jawab untuk menampilkan data dan menerima input pengguna. Presenter atau ViewModel berfungsi sebagai perantara antara UI dan domain layer, mengelola state dan logika presentasi.
+
+Langkah-langkah Implementasi Clean Architecture pada Flutter:
+- Struktur Proyek: Pisahkan direktori untuk setiap lapisan (domain, data, presentation).
+  Gunakan package atau modul untuk membatasi ketergantungan antar lapisan.
+- Model Entities: Definisikan model entitas di lapisan domain, mewakili objek bisnis murni.
+  Repository Pattern: Implementasikan repository di lapisan data untuk mengakses data dari sumber eksternal.
+- Use Cases: Tetapkan use cases di lapisan domain yang mewakili interaksi aplikasi.
+- Dependency Injection: Gunakan Dependency Injection (DI) untuk menghubungkan antar lapisan, memastikan bahwa lapisan yang lebih tinggi tidak bergantung pada detail implementasi lapisan yang lebih rendah.
+- Presenters or ViewModels: Implementasikan presenter atau view model di lapisan presentation untuk mengelola logika presentasi dan state.
+- Widget UI: Buat widget-widget UI di lapisan presentation yang mengonsumsi presenter atau view model untuk menampilkan data dan merespons input pengguna.
+- Testability: Pastikan setiap lapisan dapat diuji secara terpisah untuk meningkatkan testabilitas.
+- Package Pub dan Dependency Management: Pertimbangkan untuk memisahkan setiap lapisan menjadi package Pub yang terpisah untuk meningkatkan modularitas dan dapat digunakan kembali.
+
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
   #### Menambahkan Form Tambah Item dan elemen input
     - Buat file baru pada direktori lib dengan nama `inventory_form.dart`. Tambahkan kode berikut ke dalam file `inventory_form.dart`
@@ -331,133 +436,152 @@ git push
     - Buatlah tiga TextFormField yang dibungkus dengan Padding sebagai child selanjutnya dari Column seperti sebelumnya untuk field price, amount, dan description. Berikan juga validator pada setiap fieldnya
       ```
       Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-                decoration: InputDecoration(
-                hintText: "Nama Item",
-                labelText: "Nama Item",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
+                padding: const EdgeInsets.all(8),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "Nama Item",
+                      labelText: "Nama Item",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5))),
+                  // isi
+                  onChanged: (String? value) {
+                    setState(() {
+                      _name = value!;
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Nama Tidak Boleh Kosong!";
+                    }
+                    return null;
+                  },
                 ),
-                ),
-                onChanged: (String? value) {
-                setState(() {
-                    _name = value!;
-                });
-                },
-                validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                    return "Nama tidak boleh kosong!";
-                }
-                return null;
-                },
-            ),
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Harga Item",
+                    labelText: "Harga Item",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
 
-            Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-                decoration: InputDecoration(
-                hintText: "Harga",
-                labelText: "Harga",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
+                  // Isi
+                  onChanged: (String? value) {
+                    setState(() {
+                      _price = int.parse(value!);
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Harga Item Tidak Boleh Kosong!";
+                    }
+                    if (int.tryParse(value) == null) {
+                      return "Harga Item Harus Berupa Bilangan";
+                    }
+                    return null;
+                  },
                 ),
-                ),
-                // Tambahkan variabel yang sesuai
-                onChanged: (String? value) {
-                setState(() {
-                    _price = int.parse(value!);
-                });
-                },
-                validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                    return "Harga tidak boleh kosong!";
-                }
-                if (int.tryParse(value) == null) {
-                    return "Harga harus berupa angka!";
-                }
-                return null;
-                },
-            ),
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Jumlah Item",
+                    labelText: "Jumlah Item",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
 
-            
-            Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-                decoration: InputDecoration(
-                hintText: "Jumlah",
-                labelText: "Jumlah",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
+                  // Isi
+                  onChanged: (String? value) {
+                    setState(() {
+                      _amount = int.parse(value!);
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Jumlah Item Tidak Boleh Kosong!";
+                    }
+                    if (int.tryParse(value) == null) {
+                      return "Jumlah Item Harus Berupa Bilangan";
+                    }
+                    return null;
+                  },
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Deskripsi",
+                    labelText: "Deskripsi",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _description = value!;
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Deskripsi Tidak Boleh Kosong";
+                    }
+                    return null;
+                  },
                 ),
-                // Tambahkan variabel yang sesuai
-                onChanged: (String? value) {
-                setState(() {
-                    _amount = int.parse(value!);
-                });
-                },
-                validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                    return "Jumlah tidak boleh kosong!";
-                }
-                if (int.tryParse(value) == null) {
-                    return "Jumlah harus berupa angka!";
-                }
-                return null;
-                },
-            ),
-            ),
-
-            Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-                decoration: InputDecoration(
-                hintText: "Deskripsi",
-                labelText: "Deskripsi",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                ),
-                ),
-                onChanged: (String? value) {
-                setState(() {
-                    // Tambahkan variabel yang sesuai
-                    _description = value!;
-                });
-                },
-                validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                    return "Deskripsi tidak boleh kosong!";
-                }
-                return null;
-                },
-            ),
-            ),
+              ),
       ```
 
     - Buatlah tombol sebagai child selanjutnya dari Column. Bungkus tombol ke dalam widget Padding dan Align. Kali ini kita tidak akan menyimpan data ke dalam database, namun kita akan memunculkannya pada pop-up yang akan muncul setelah tombol ditekan.
       ```
       Align(
-        alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(Colors.indigo),
-            ),
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {}
-            },
-            child: const Text(
-              "Save",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ),
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.teal.shade200),
+                    ),
+                    child: const Text(
+                      "Save",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Item Berhasil Disimpan!"),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Nama: $_name'),
+                                        Text('Harga Item: $_price'),
+                                        Text('Jumlah Item: $_amount'),
+                                        Text('Deskripsi: $_description'),
+                                      ]),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: const Text("OK"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  )
+                                ],
+                              );
+                            });
+                        _formKey.currentState!.reset();
       ```
 
   #### Menambahkan Fitur Navigasi ke page Tambah Item 
@@ -475,7 +599,10 @@ git push
       if (item.name == "Tambah Item") {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const ShopFormPage()));
-      }   
+      } else if (item.name == "Lihat Item") {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ItemListPage()));
+      }
     },
     ```
 
@@ -483,48 +610,47 @@ git push
   - Tambahkan fungsi showDialog() pada bagian onPressed() dan munculkan widget AlertDialog pada fungsi tersebut. Lalu, tambahkan juga fungsi untuk reset form.
     ```
     child: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(Colors.indigo),
-              ),
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        title: const Text('Produk berhasil tersimpan'),
-                        content: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                            children: [ 
-                              Text('Nama: $_name'),
-                              Text('Harga: $_price'),
-                              Text('Jumlah: $_amount'),
-                              Text('Deskripsi: $_description'),
-                            ],
-                          ),
-                        ),
-                        actions: [
-                          TextButton(
-                            child: const Text('OK'),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                _formKey.currentState!.reset();
-                }
-              },
-              child: const Text(
-                "Save",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.teal.shade200),
+                    ),
+                    child: const Text(
+                      "Save",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        //Add item to items
+                        Item content = Item(_name,_price, _amount, _description);
+                        Item.items.add(content);
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Item Berhasil Disimpan!"),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Nama: $_name'),
+                                        Text('Harga Item: $_price'),
+                                        Text('Jumlah Item: $_amount'),
+                                        Text('Deskripsi: $_description'),
+                                      ]),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: const Text("OK"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  )
+                                ],
+                              );
+                            });
+                        _formKey.currentState!.reset();
+                      }
     ```
 
   #### Membuat Drawer opsi Halaman Utama dan Tambah Item yang akan mengarahkan ke page sesuai
@@ -570,6 +696,17 @@ git push
                 )
               );
           },
+        ),
+        ListTile(
+              leading: const Icon(Icons.add_shopping_cart),
+              title: const Text('Lihat Item'),
+              // Bagian redirection ke ShopFormPage
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ItemListPage(),
+                  ));
+              },
         ),
         ListTile(
           leading: const Icon(Icons.add_shopping_cart),
@@ -656,3 +793,16 @@ git push
   - Pindahkan file `menu.dart` dan inventory_form.dart` ke dalam folder screens.
  
 - Melakukan add-commit-push ke GitHub.
+### Bonus
+- Membuat sebuah halaman baru, yaitu halaman daftar item yang sudah dibuat dengan isi halamannya adalah setiap data produk yang sudah pernah dibuat.
+  ```
+
+- Mengarahkan pengguna ke halaman tersebut jika menekan tombol Lihat Produk pada halaman utama atau drawer.
+
+### Tampilan
+![user1](https://i.postimg.cc/Wz6fHgb9/tugas8-home.jpg)
+https://i.postimg.cc/rs89zbMJ/lihat-Item.jpg
+https://i.postimg.cc/Bndc2tJt/drawertugas8.jpg
+https://i.postimg.cc/J4x23NF0/tambah-Iteminvalid.jpg
+https://i.postimg.cc/59wGydqw/tambah-Item.jpg
+
