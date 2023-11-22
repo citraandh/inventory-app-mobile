@@ -794,18 +794,17 @@ Langkah-langkah Implementasi Clean Architecture pada Flutter:
  
 - Melakukan add-commit-push ke GitHub.
 ### Bonus
-![4](https://i.postimg.cc/59wGydqw/tambah-Item.jpg)
+
 - Membuat sebuah halaman baru, yaitu halaman daftar item yang sudah dibuat dengan isi halamannya adalah setiap data produk yang sudah pernah dibuat.
   ```
-
+![ph2](https://i.postimg.cc/rs89zbMJ/lihat-Item.jpg)
 - Mengarahkan pengguna ke halaman tersebut jika menekan tombol Lihat Produk pada halaman utama atau drawer.
 
 ### Tampilan
 ![ph1](https://i.postimg.cc/Wz6fHgb9/tugas8-home.jpg)
-
-![ph2](https://i.postimg.cc/rs89zbMJ/lihat-Item.jpg)
-![ph3](https://i.postimg.cc/Bndc2tJt/drawertugas8.jpg)
+![4](https://i.postimg.cc/59wGydqw/tambah-Item.jpg)
 ![ph4](https://i.postimg.cc/J4x23NF0/tambah-Iteminvalid.jpg)
+![ph3](https://i.postimg.cc/Bndc2tJt/drawertugas8.jpg)
 
 ## Tugas 9
 ### Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
