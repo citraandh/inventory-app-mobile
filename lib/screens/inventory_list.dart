@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:inventory_mobile/models/item.dart';
+import 'package:inventory_mobile/models/itemb.dart';
 import 'package:inventory_mobile/widgets/left_drawer.dart';
 
+// Bonus Tugas 8 Page
 class ItemListPage extends StatelessWidget {
   const ItemListPage({super.key});
   @override
@@ -14,9 +15,9 @@ class ItemListPage extends StatelessWidget {
       ),
       drawer: const LeftDrawer(),
       body: ListView.builder(
-        itemCount: Item.items.length,
+        itemCount: Itemb.items.length,
         itemBuilder: (context, index) {
-          Item currentItem = Item.items[index];
+          Itemb currentItem = Itemb.items[index];
           return Card(
             elevation: 4.0, // Menambahkan efek bayangan pada Card
             margin: const EdgeInsets.all(8.0), // Menambahkan margin pada Card
